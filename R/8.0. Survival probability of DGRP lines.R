@@ -1,0 +1,692 @@
+# -------------------------------------------------------------------------------------
+# Script to plot survival probabilities of DGRP lines
+# Data generated Felix P Leiva, Radboud University
+# Created by Félix P Leiva on 20210608 (YYYYMMDD)
+# -------------------------------------------------------------------------------------
+# Cleaning working space and setting date
+rm(list=ls())
+today<-format(Sys.Date(),"%Y%m%d")
+# -------------------------------------------------------------------------------------
+setwd("C:/Users/Invunche/Dropbox/Radboud University/publicaciones/Thesis/3. Thermal tolerance on big and small cells/manuscritos/Submission FE")
+# check directory
+getwd()
+# -------------------------------------------------------------------------------------
+#Libraries
+library(plyr)
+library(smatr)
+library(lme4)
+library(ggplot2)
+library(cowplot)
+library(MuMIn)
+# -------------------------------------------------------------------------------------
+# Functions
+source("Thermal landscape functions.R")
+# ------------------------------------------------------------------------------
+#Load data of normoxia (20 lines)
+all.lines.21<-read.csv("Survival time of Drosophila melanogaster and its associated size traits at 21 kPa.csv")
+str(all.lines.21)
+#stock as factor
+all.lines.21$stock<-as.factor(all.lines.21$stock)
+#transform minutes in log10-scale to minutes
+all.lines.21$surv.time2<-as.numeric(10^(all.lines.21$surv.time))
+# subset by sex
+data_f<-subset(all.lines.21,sex=="female") #females
+data_m<-subset(all.lines.21,sex=="male") #males
+# subset by stock
+levels(data_f$stock)
+# [1] "25180" "25182" "25190" "25192" "25198" "25201" "25203" "28135" "28141"
+# [10] "28153" "28173" "28180" "28191" "28196" "28197" "28198" "28247" "28248"
+# [19] "28258" "29652"
+
+#------------------------------------------------------
+#Sexes pooled
+
+p.25180<-subset(all.lines.21,stock=="25180")
+p1 <- tolerance.landscape(p.25180$test.temp,p.25180$surv.time2)
+
+p.25182<-subset(all.lines.21,stock=="25182")
+p2 <- tolerance.landscape(p.25182$test.temp,p.25182$surv.time2)
+
+p.25190<-subset(all.lines.21,stock=="25190")
+p3 <- tolerance.landscape(p.25190$test.temp,p.25190$surv.time2)
+
+p.25192<-subset(all.lines.21,stock=="25192")
+p4 <- tolerance.landscape(p.25192$test.temp,p.25192$surv.time2)
+
+p.25198<-subset(all.lines.21,stock=="25198")
+p5 <- tolerance.landscape(p.25198$test.temp,p.25198$surv.time2)
+
+p.25201<-subset(all.lines.21,stock=="25201")
+p6 <- tolerance.landscape(p.25201$test.temp,p.25201$surv.time2)
+
+p.25203<-subset(all.lines.21,stock=="25203")
+p7 <- tolerance.landscape(p.25203$test.temp,p.25203$surv.time2)
+
+p.28135<-subset(all.lines.21,stock=="28135")
+p8 <- tolerance.landscape(p.28135$test.temp,p.28135$surv.time2)
+
+p.28141<-subset(all.lines.21,stock=="28141")
+p9 <- tolerance.landscape(p.28141$test.temp,p.28141$surv.time2)
+
+p.28153<-subset(all.lines.21,stock=="28153")
+p10 <- tolerance.landscape(p.28153$test.temp,p.28153$surv.time2)
+
+p.28173<-subset(all.lines.21,stock=="28173")
+p11 <- tolerance.landscape(p.28173$test.temp,p.28173$surv.time2)
+
+p.28180<-subset(all.lines.21,stock=="28180")
+p12 <- tolerance.landscape(p.28180$test.temp,p.28180$surv.time2)
+
+p.28191<-subset(all.lines.21,stock=="28191")
+p13 <- tolerance.landscape(p.28191$test.temp,p.28191$surv.time2)
+
+p.28196<-subset(all.lines.21,stock=="28196")
+p14 <- tolerance.landscape(p.28196$test.temp,p.28196$surv.time2)
+
+p.28197<-subset(all.lines.21,stock=="28197")
+p15 <- tolerance.landscape(p.28197$test.temp,p.28197$surv.time2)
+
+p.28198<-subset(all.lines.21,stock=="28198")
+p16 <- tolerance.landscape(p.28198$test.temp,p.28198$surv.time2)
+
+p.28247<-subset(all.lines.21,stock=="28247")
+p17 <- tolerance.landscape(p.28247$test.temp,p.28247$surv.time2)
+
+p.28248<-subset(all.lines.21,stock=="28248")
+p18 <- tolerance.landscape(p.28248$test.temp,p.28248$surv.time2)
+
+p.28258<-subset(all.lines.21,stock=="28258")
+p19 <- tolerance.landscape(p.28258$test.temp,p.28258$surv.time2)
+
+p.29652<-subset(all.lines.21,stock=="29652")
+p20 <- tolerance.landscape(p.29652$test.temp,p.29652$surv.time2)
+
+pall<-tolerance.landscape(all.lines.21$test.temp,all.lines.21$surv.time2)
+#------------------------------------------------------
+#Females
+
+f.25180<-subset(data_f,stock=="25180")
+f1 <- tolerance.landscape(f.25180$test.temp,f.25180$surv.time2)
+
+f.25182<-subset(data_f,stock=="25182")
+f2 <- tolerance.landscape(f.25182$test.temp,f.25182$surv.time2)
+
+f.25190<-subset(data_f,stock=="25190")
+f3 <- tolerance.landscape(f.25190$test.temp,f.25190$surv.time2)
+
+f.25192<-subset(data_f,stock=="25192")
+f4 <- tolerance.landscape(f.25192$test.temp,f.25192$surv.time2)
+
+f.25198<-subset(data_f,stock=="25198")
+f5 <- tolerance.landscape(f.25198$test.temp,f.25198$surv.time2)
+
+f.25201<-subset(data_f,stock=="25201")
+f6 <- tolerance.landscape(f.25201$test.temp,f.25201$surv.time2)
+
+f.25203<-subset(data_f,stock=="25203")
+f7 <- tolerance.landscape(f.25203$test.temp,f.25203$surv.time2)
+
+f.28135<-subset(data_f,stock=="28135")
+f8 <- tolerance.landscape(f.28135$test.temp,f.28135$surv.time2)
+
+f.28141<-subset(data_f,stock=="28141")
+f9 <- tolerance.landscape(f.28141$test.temp,f.28141$surv.time2)
+
+f.28153<-subset(data_f,stock=="28153")
+f10 <- tolerance.landscape(f.28153$test.temp,f.28153$surv.time2)
+
+f.28173<-subset(data_f,stock=="28173")
+f11 <- tolerance.landscape(f.28173$test.temp,f.28173$surv.time2)
+
+f.28180<-subset(data_f,stock=="28180")
+f12 <- tolerance.landscape(f.28180$test.temp,f.28180$surv.time2)
+
+f.28191<-subset(data_f,stock=="28191")
+f13 <- tolerance.landscape(f.28191$test.temp,f.28191$surv.time2)
+
+f.28196<-subset(data_f,stock=="28196")
+f14 <- tolerance.landscape(f.28196$test.temp,f.28196$surv.time2)
+
+f.28197<-subset(data_f,stock=="28197")
+f15 <- tolerance.landscape(f.28197$test.temp,f.28197$surv.time2)
+
+f.28198<-subset(data_f,stock=="28198")
+f16 <- tolerance.landscape(f.28198$test.temp,f.28198$surv.time2)
+
+f.28247<-subset(data_f,stock=="28247")
+f17 <- tolerance.landscape(f.28247$test.temp,f.28247$surv.time2)
+
+f.28248<-subset(data_f,stock=="28248")
+f18 <- tolerance.landscape(f.28248$test.temp,f.28248$surv.time2)
+
+f.28258<-subset(data_f,stock=="28258")
+f19 <- tolerance.landscape(f.28258$test.temp,f.28258$surv.time2)
+
+f.29652<-subset(data_f,stock=="29652")
+f20 <- tolerance.landscape(f.29652$test.temp,f.29652$surv.time2)
+
+fall<-tolerance.landscape(data_f$test.temp,data_f$surv.time2)
+
+#------------------------------------------------------
+#Males
+
+m.25180<-subset(data_m,stock=="25180")
+m1 <- tolerance.landscape(m.25180$test.temp,m.25180$surv.time2)
+
+m.25182<-subset(data_m,stock=="25182")
+m2 <- tolerance.landscape(m.25182$test.temp,m.25182$surv.time2)
+
+m.25190<-subset(data_m,stock=="25190")
+m3 <- tolerance.landscape(m.25190$test.temp,m.25190$surv.time2)
+
+m.25192<-subset(data_m,stock=="25192")
+m4 <- tolerance.landscape(m.25192$test.temp,m.25192$surv.time2)
+
+m.25198<-subset(data_m,stock=="25198")
+m5 <- tolerance.landscape(m.25198$test.temp,m.25198$surv.time2)
+
+m.25201<-subset(data_m,stock=="25201")
+m6 <- tolerance.landscape(m.25201$test.temp,m.25201$surv.time2)
+
+m.25203<-subset(data_m,stock=="25203")
+m7 <- tolerance.landscape(m.25203$test.temp,m.25203$surv.time2)
+
+m.28135<-subset(data_m,stock=="28135")
+m8 <- tolerance.landscape(m.28135$test.temp,m.28135$surv.time2)
+
+m.28141<-subset(data_m,stock=="28141")
+m9 <- tolerance.landscape(m.28141$test.temp,m.28141$surv.time2)
+
+m.28153<-subset(data_m,stock=="28153")
+m10 <- tolerance.landscape(m.28153$test.temp,m.28153$surv.time2)
+
+m.28173<-subset(data_m,stock=="28173")
+m11 <- tolerance.landscape(m.28173$test.temp,m.28173$surv.time2)
+
+m.28180<-subset(data_m,stock=="28180")
+m12 <- tolerance.landscape(m.28180$test.temp,m.28180$surv.time2)
+
+m.28191<-subset(data_m,stock=="28191")
+m13 <- tolerance.landscape(m.28191$test.temp,m.28191$surv.time2)
+
+m.28196<-subset(data_m,stock=="28196")
+m14 <- tolerance.landscape(m.28196$test.temp,m.28196$surv.time2)
+
+m.28197<-subset(data_m,stock=="28197")
+m15 <- tolerance.landscape(m.28197$test.temp,m.28197$surv.time2)
+
+m.28198<-subset(data_m,stock=="28198")
+m16 <- tolerance.landscape(m.28198$test.temp,m.28198$surv.time2)
+
+m.28247<-subset(data_m,stock=="28247")
+m17 <- tolerance.landscape(m.28247$test.temp,m.28247$surv.time2)
+
+m.28248<-subset(data_m,stock=="28248")
+m18 <- tolerance.landscape(m.28248$test.temp,m.28248$surv.time2)
+
+m.28258<-subset(data_m,stock=="28258")
+m19 <- tolerance.landscape(m.28258$test.temp,m.28258$surv.time2)
+
+m.29652<-subset(data_m,stock=="29652")
+m20 <- tolerance.landscape(m.29652$test.temp,m.29652$surv.time2)
+
+mall<-tolerance.landscape(data_m$test.temp,data_m$surv.time2)
+
+# --------- Plots --------------------------------------------------------------
+{
+#pdf("Figure 2 Survival probabilities of DGRP lines.pdf",width = 10,height = 10,useDingbats = FALSE)
+png("Figure 2 Survival probabilities of DGRP lines.png",width = 12,height = 14,units = "in",res = 300)
+par(mfrow=c(2,2),tcl=-0.4, family="serif",omi=c(0,0,0,0))
+
+# labels
+labs= c("1","2","5","10","30","120","420")
+xs= log10(c(1,2,5,10,30,60*2,60*7))
+
+par(mai=c(0.85,0.85,0.1,0.1))
+plot(surv.time ~ jitter(test.temp,0.5),xlim=c(35.6,39.4),ylim=c(0,3),cex.axis=1.4, cex.lab=1.4,yaxt="n",cex=1.4,pch=16,col="#4DAC2660",xlab="",ylab="Time (min)",data=f.25180)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25182)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25190)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25192)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25198)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25201)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25203)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28135)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28141)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28153)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28173)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28180)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28191)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28196)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28197)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28198)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28247)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28248)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28258)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.29652)
+  abline(lm(surv.time ~ test.temp,data = f.25180),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.25182),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.25190),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.25192),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.25198),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.25201),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.25203),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.28135),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.28141),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.28153),col="gray")	
+	abline(lm(surv.time ~ test.temp,data = f.28173),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.28180),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.28191),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.28196),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.28197),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.28198),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.28247),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.28248),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.28258),col="gray")
+	abline(lm(surv.time ~ test.temp,data = f.29652),col="gray")
+	abline(lm(surv.time ~ test.temp,data = data_f),col="#4DAC26",lwd=3)
+
+#update axis
+axis(2, at=xs, labels=labs, cex.axis=1.4)
+par(mai=c(0.85,0.85,0.1,0.1))
+plot(f1$S$time,f1$S$surv,col="gray",type="l",ylab="Survival probability",cex.axis=1.4, cex.lab=1.4,xlab="",las=1,xlim=c(0,100))
+points(f2$S$time,f2$S$surv,col="gray",type="l")
+points(f3$S$time,f3$S$surv,col="gray",type="l")
+points(f4$S$time,f4$S$surv,col="gray",type="l")
+points(f5$S$time,f5$S$surv,col="gray",type="l")
+points(f6$S$time,f6$S$surv,col="gray",type="l")
+points(f7$S$time,f7$S$surv,col="gray",type="l")
+points(f8$S$time,f8$S$surv,col="gray",type="l")
+points(f9$S$time,f9$S$surv,col="gray",type="l")
+points(f10$S$time,f10$S$surv,col="gray",type="l")
+points(f11$S$time,f11$S$surv,col="gray",type="l")
+points(f12$S$time,f12$S$surv,col="gray",type="l")
+points(f13$S$time,f13$S$surv,col="gray",type="l")
+points(f14$S$time,f14$S$surv,col="gray",type="l")
+points(f15$S$time,f15$S$surv,col="gray",type="l")
+points(f16$S$time,f16$S$surv,col="gray",type="l")
+points(f17$S$time,f17$S$surv,col="gray",type="l")
+points(f18$S$time,f18$S$surv,col="gray",type="l")
+points(f19$S$time,f19$S$surv,col="gray",type="l")
+points(f20$S$time,f20$S$surv,col="gray",type="l")
+points(fall$S$time,fall$S$surv,col="#4DAC26",type="l",lwd=3)
+text(80,0.92,"Inbred lines",col="gray",adj=0,font=2)
+text(80,.85,"Pooled data",adj=0,col="#4DAC26",font=2)
+
+#-------------------------------------------------------------------------
+#males
+# labels
+labs= c("1","2","5","10","30","120","420")
+xs= log10(c(1,2,5,10,30,60*2,60*7))
+
+par(mai=c(0.85,0.85,0,0.1))
+plot(surv.time ~ jitter(test.temp,0.5),xlim=c(35.6,39.4),ylim=c(0,3),yaxt="n",cex.axis=1.4, cex.lab=1.4,cex=1.4,pch=16,col="#A6761D70",xlab="Test temperature (°C)",ylab="Time (min)",data=m.25180)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25182)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25190)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25192)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25198)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25201)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25203)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28135)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28141)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28153)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28173)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28180)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28191)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28196)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28197)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28198)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28247)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28248)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28258)
+points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.29652)
+abline(lm(surv.time ~ test.temp,data = m.25180),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.25182),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.25190),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.25192),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.25198),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.25201),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.25203),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.28135),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.28141),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.28153),col="gray")	
+abline(lm(surv.time ~ test.temp,data = m.28173),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.28180),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.28191),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.28196),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.28197),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.28198),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.28247),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.28248),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.28258),col="gray")
+abline(lm(surv.time ~ test.temp,data = m.29652),col="gray")
+abline(lm(surv.time ~ test.temp,data = data_m),col="#A6761D",lwd=3)
+
+#update axis
+axis(2, at=xs, labels=labs, cex.axis=1.4)
+
+par(mai=c(0.85,0.85,0,0.1))
+plot(m1$S$time,m1$S$surv,col="gray",type="l",ylab="Survival probability",xlab="Time (min)",cex.lab=1.4,cex.axis=1.4,las=1,xlim=c(0,100))
+points(m2$S$time,m2$S$surv,col="gray",type="l")
+points(m3$S$time,m3$S$surv,col="gray",type="l")
+points(m4$S$time,m4$S$surv,col="gray",type="l")
+points(m5$S$time,m5$S$surv,col="gray",type="l")
+points(m6$S$time,m6$S$surv,col="gray",type="l")
+points(m7$S$time,m7$S$surv,col="gray",type="l")
+points(m8$S$time,m8$S$surv,col="gray",type="l")
+points(m9$S$time,m9$S$surv,col="gray",type="l")
+points(m10$S$time,m10$S$surv,col="gray",type="l")
+points(m11$S$time,m11$S$surv,col="gray",type="l")
+points(m12$S$time,m12$S$surv,col="gray",type="l")
+points(m13$S$time,m13$S$surv,col="gray",type="l")
+points(m14$S$time,m14$S$surv,col="gray",type="l")
+points(m15$S$time,m15$S$surv,col="gray",type="l")
+points(m16$S$time,m16$S$surv,col="gray",type="l")
+points(m17$S$time,m17$S$surv,col="gray",type="l")
+points(m18$S$time,m18$S$surv,col="gray",type="l")
+points(m19$S$time,m19$S$surv,col="gray",type="l")
+points(m20$S$time,m20$S$surv,col="gray",type="l")
+points(mall$S$time,mall$S$surv,col="#A6761D",type="l",lwd=3)
+text(80,0.92,"Inbred lines",col="gray",adj=0,font=2)
+text(80,.85,"Pooled data",adj=0,col="#A6761D",font=2)
+
+# close device
+dev.off()
+}
+
+{
+  #pdf("Figure 2 (bonus) Survival probabilities of DGRP lines.pdf",width = 10,height = 14,useDingbats = FALSE)
+  png("Figure 2 (bonus) Survival probabilities of DGRP lines.png",width = 10,height = 14,units = "in",res = 300)
+  par(mfrow=c(3,2),tcl=-0.4, family="serif",omi=c(0,0,0,0))
+  
+  #Sexes pooled
+  # labels
+  labs= c("1","2","5","10","30","120","420")
+  xs= log10(c(1,2,5,10,30,60*2,60*7))
+  
+  par(mai=c(0.85,0.85,0.1,0.1))
+  plot(surv.time ~ jitter(test.temp,0.5),xlim=c(35.6,39.4),ylim=c(0,3),cex.axis=1.4, cex.lab=1.4,yaxt="n",cex=1.4,pch=16,col="#55555540",xlab="",ylab="Time (min)",data=p.25180)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.25182)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.25190)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.25192)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.25198)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.25201)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.25203)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28135)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28141)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28153)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28173)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28180)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28191)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28196)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28197)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28198)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28247)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28248)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.28258)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#55555540",data=p.29652)
+  abline(lm(surv.time ~ test.temp,data = p.25180),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.25182),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.25190),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.25192),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.25198),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.25201),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.25203),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.28135),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.28141),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.28153),col="gray")	
+  abline(lm(surv.time ~ test.temp,data = p.28173),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.28180),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.28191),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.28196),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.28197),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.28198),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.28247),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.28248),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.28258),col="gray")
+  abline(lm(surv.time ~ test.temp,data = p.29652),col="gray")
+  abline(lm(surv.time ~ test.temp,data = all.lines.21),col="#555555",lwd=3)
+  
+  #update axis
+  axis(2, at=xs, labels=labs, cex.axis=1.4)
+  par(mai=c(0.85,0.85,0.1,0.1))
+  plot(p1$S$time,p1$S$surv,col="gray",type="l",ylab="Survival probability",cex.axis=1.4, cex.lab=1.4,xlab="",las=1,xlim=c(0,100))
+  points(p2$S$time,p2$S$surv,col="gray",type="l")
+  points(p3$S$time,p3$S$surv,col="gray",type="l")
+  points(p4$S$time,p4$S$surv,col="gray",type="l")
+  points(p5$S$time,p5$S$surv,col="gray",type="l")
+  points(p6$S$time,p6$S$surv,col="gray",type="l")
+  points(p7$S$time,p7$S$surv,col="gray",type="l")
+  points(p8$S$time,p8$S$surv,col="gray",type="l")
+  points(p9$S$time,p9$S$surv,col="gray",type="l")
+  points(p10$S$time,p10$S$surv,col="gray",type="l")
+  points(p11$S$time,p11$S$surv,col="gray",type="l")
+  points(p12$S$time,p12$S$surv,col="gray",type="l")
+  points(p13$S$time,p13$S$surv,col="gray",type="l")
+  points(p14$S$time,p14$S$surv,col="gray",type="l")
+  points(p15$S$time,p15$S$surv,col="gray",type="l")
+  points(p16$S$time,p16$S$surv,col="gray",type="l")
+  points(p17$S$time,p17$S$surv,col="gray",type="l")
+  points(p18$S$time,p18$S$surv,col="gray",type="l")
+  points(p19$S$time,p19$S$surv,col="gray",type="l")
+  points(p20$S$time,p20$S$surv,col="gray",type="l")
+  points(pall$S$time,pall$S$surv,col="#555555",type="l",lwd=3)
+  text(80,0.92,"Inbred lines",col="gray",adj=0,font=2,cex=1.3)
+  text(80,.85,"Pooled data",adj=0,col="#555555",font=2,cex=1.3)
+  
+  #-------------------------------------------------------------------------
+  #females
+  # labels
+  labs= c("1","2","5","10","30","120","420")
+  xs= log10(c(1,2,5,10,30,60*2,60*7))
+  
+  par(mai=c(0.85,0.85,0,0.1))
+  plot(surv.time ~ jitter(test.temp,0.5),xlim=c(35.6,39.4),ylim=c(0,3),cex.axis=1.4, cex.lab=1.4,yaxt="n",cex=1.4,pch=16,col="#4DAC2660",xlab="",ylab="Time (min)",data=f.25180)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25182)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25190)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25192)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25198)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25201)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.25203)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28135)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28141)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28153)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28173)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28180)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28191)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28196)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28197)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28198)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28247)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28248)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.28258)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#4DAC2660",data=f.29652)
+  abline(lm(surv.time ~ test.temp,data = f.25180),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.25182),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.25190),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.25192),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.25198),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.25201),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.25203),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.28135),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.28141),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.28153),col="gray")	
+  abline(lm(surv.time ~ test.temp,data = f.28173),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.28180),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.28191),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.28196),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.28197),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.28198),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.28247),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.28248),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.28258),col="gray")
+  abline(lm(surv.time ~ test.temp,data = f.29652),col="gray")
+  abline(lm(surv.time ~ test.temp,data = data_f),col="#4DAC26",lwd=3)
+  
+  #update axis
+  axis(2, at=xs, labels=labs, cex.axis=1.4)
+  par(mai=c(0.85,0.85,0,0.1))
+  plot(f1$S$time,f1$S$surv,col="gray",type="l",ylab="Survival probability",cex.axis=1.4, cex.lab=1.4,xlab="",las=1,xlim=c(0,100))
+  points(f2$S$time,f2$S$surv,col="gray",type="l")
+  points(f3$S$time,f3$S$surv,col="gray",type="l")
+  points(f4$S$time,f4$S$surv,col="gray",type="l")
+  points(f5$S$time,f5$S$surv,col="gray",type="l")
+  points(f6$S$time,f6$S$surv,col="gray",type="l")
+  points(f7$S$time,f7$S$surv,col="gray",type="l")
+  points(f8$S$time,f8$S$surv,col="gray",type="l")
+  points(f9$S$time,f9$S$surv,col="gray",type="l")
+  points(f10$S$time,f10$S$surv,col="gray",type="l")
+  points(f11$S$time,f11$S$surv,col="gray",type="l")
+  points(f12$S$time,f12$S$surv,col="gray",type="l")
+  points(f13$S$time,f13$S$surv,col="gray",type="l")
+  points(f14$S$time,f14$S$surv,col="gray",type="l")
+  points(f15$S$time,f15$S$surv,col="gray",type="l")
+  points(f16$S$time,f16$S$surv,col="gray",type="l")
+  points(f17$S$time,f17$S$surv,col="gray",type="l")
+  points(f18$S$time,f18$S$surv,col="gray",type="l")
+  points(f19$S$time,f19$S$surv,col="gray",type="l")
+  points(f20$S$time,f20$S$surv,col="gray",type="l")
+  points(fall$S$time,fall$S$surv,col="#4DAC26",type="l",lwd=3)
+  text(80,0.92,"Inbred lines",col="gray",adj=0,font=2,cex=1.3)
+  text(80,.85,"Pooled data",adj=0,col="#4DAC26",font=2,cex=1.3)
+  
+  #-------------------------------------------------------------------------
+  #males
+  # labels
+  labs= c("1","2","5","10","30","120","420")
+  xs= log10(c(1,2,5,10,30,60*2,60*7))
+  
+  par(mai=c(0.85,0.85,0,0.1))
+  plot(surv.time ~ jitter(test.temp,0.5),xlim=c(35.6,39.4),ylim=c(0,3),yaxt="n",cex.axis=1.4, cex.lab=1.4,cex=1.4,pch=16,col="#A6761D70",xlab="Test temperature (°C)",ylab="Time (min)",data=m.25180)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25182)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25190)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25192)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25198)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25201)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.25203)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28135)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28141)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28153)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28173)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28180)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28191)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28196)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28197)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28198)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28247)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28248)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.28258)
+  points(surv.time ~ jitter(test.temp,0.5),cex=1.4,pch=16,col="#A6761D70",data=m.29652)
+  abline(lm(surv.time ~ test.temp,data = m.25180),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.25182),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.25190),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.25192),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.25198),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.25201),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.25203),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.28135),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.28141),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.28153),col="gray")	
+  abline(lm(surv.time ~ test.temp,data = m.28173),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.28180),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.28191),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.28196),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.28197),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.28198),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.28247),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.28248),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.28258),col="gray")
+  abline(lm(surv.time ~ test.temp,data = m.29652),col="gray")
+  abline(lm(surv.time ~ test.temp,data = data_m),col="#A6761D",lwd=3)
+  
+  #update axis
+  axis(2, at=xs, labels=labs, cex.axis=1.4)
+  
+  par(mai=c(0.85,0.85,0,0.1))
+  plot(m1$S$time,m1$S$surv,col="gray",type="l",ylab="Survival probability",xlab="Time (min)",cex.lab=1.4,cex.axis=1.4,las=1,xlim=c(0,100))
+  points(m2$S$time,m2$S$surv,col="gray",type="l")
+  points(m3$S$time,m3$S$surv,col="gray",type="l")
+  points(m4$S$time,m4$S$surv,col="gray",type="l")
+  points(m5$S$time,m5$S$surv,col="gray",type="l")
+  points(m6$S$time,m6$S$surv,col="gray",type="l")
+  points(m7$S$time,m7$S$surv,col="gray",type="l")
+  points(m8$S$time,m8$S$surv,col="gray",type="l")
+  points(m9$S$time,m9$S$surv,col="gray",type="l")
+  points(m10$S$time,m10$S$surv,col="gray",type="l")
+  points(m11$S$time,m11$S$surv,col="gray",type="l")
+  points(m12$S$time,m12$S$surv,col="gray",type="l")
+  points(m13$S$time,m13$S$surv,col="gray",type="l")
+  points(m14$S$time,m14$S$surv,col="gray",type="l")
+  points(m15$S$time,m15$S$surv,col="gray",type="l")
+  points(m16$S$time,m16$S$surv,col="gray",type="l")
+  points(m17$S$time,m17$S$surv,col="gray",type="l")
+  points(m18$S$time,m18$S$surv,col="gray",type="l")
+  points(m19$S$time,m19$S$surv,col="gray",type="l")
+  points(m20$S$time,m20$S$surv,col="gray",type="l")
+  points(mall$S$time,mall$S$surv,col="#A6761D",type="l",lwd=3)
+  text(80,0.92,"Inbred lines",col="gray",adj=0,font=2,cex=1.3)
+  text(80,.85,"Pooled data",adj=0,col="#A6761D",font=2,cex=1.3)
+  
+  # close device
+  dev.off()
+}
+
+#Some models
+##SEXES POOLED
+# linear model without considering variation between stocks
+fit0<-lm(surv.time ~ test.temp, data=all.lines.21)
+#percentage of explained variance
+round((summary(fit0)$adj.r.squared)*100,digits=3)
+
+# mixed model with random variation in intercept 
+fit1<-lmer(surv.time ~ test.temp + (1|stock), REML = TRUE, data=all.lines.21)
+#percentage of explained variance
+r.squaredGLMM(fit1)
+#         R2m       R2c
+# [1,] 0.7894312 0.8300047
+
+# mixed model with random variation in intercept and slope
+fit2<-lmer(surv.time ~ test.temp + (1+test.temp|stock), REML = TRUE, data=all.lines.21)
+#percentage of explained variance
+r.squaredGLMM(fit2)
+#         R2m       R2c
+# [1,] 0.8030306 0.8479145
+
+##ONLY FEMALES
+# linear model without considering variation between stocks
+fit3<-lm(surv.time ~ test.temp, data=data_f)
+#percentage of explained variance
+round((summary(fit3)$adj.r.squared)*100,digits=3)
+
+# mixed model with random variation in intercept 
+fit4<-lmer(surv.time ~ test.temp + (1|stock), REML = TRUE, data=data_f)
+#percentage of explained variance
+r.squaredGLMM(fit4)
+#         R2m       R2c
+# [1,] 0.8289863 0.8692068
+
+# mixed model with random variation in intercept and slope
+fit5<-lmer(surv.time ~ test.temp + (1+test.temp|stock), REML = TRUE, data=data_f)
+#percentage of explained variance
+r.squaredGLMM(fit5)
+#         R2m       R2c
+# [1,] 0.835395 0.8702123
+# 
+##ONLY MALES
+# linear model without considering variation between stocks
+fit6<-lm(surv.time ~ test.temp, data=data_m)
+#percentage of explained variance
+round((summary(fit6)$adj.r.squared)*100,digits=3)
+
+# mixed model with random variation in intercept 
+fit7<-lmer(surv.time ~ test.temp + (1|stock), REML = TRUE, data=data_m)
+#percentage of explained variance
+r.squaredGLMM(fit7)
+#         R2m       R2c
+# [1,] 0.7607502 0.8108192
+
+# mixed model with random variation in intercept and slope
+fit8<-lmer(surv.time ~ test.temp + (1+test.temp|stock), REML = TRUE, data=data_m)
+#percentage of explained variance
+r.squaredGLMM(fit8)
+#         R2m       R2c
+# [1,] 0.835395 0.8702123
