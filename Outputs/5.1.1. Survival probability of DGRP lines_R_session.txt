@@ -1,0 +1,22 @@
+R version 4.1.0 (2021-05-18)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 18362)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United Kingdom.1252  LC_CTYPE=English_United Kingdom.1252   
+[3] LC_MONETARY=English_United Kingdom.1252 LC_NUMERIC=C                           
+[5] LC_TIME=English_United Kingdom.1252    
+system code page: 65001
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] MuMIn_1.43.17 lme4_1.1-27.1 Matrix_1.3-3 
+
+loaded via a namespace (and not attached):
+ [1] minqa_1.2.4     MASS_7.3-54     compiler_4.1.0  tools_4.1.0     Rcpp_1.0.7     
+ [6] tinytex_0.32    splines_4.1.0   nlme_3.1-152    grid_4.1.0      xfun_0.24      
+[11] nloptr_1.2.2.2  boot_1.3-28     stats4_4.1.0    lattice_0.20-44

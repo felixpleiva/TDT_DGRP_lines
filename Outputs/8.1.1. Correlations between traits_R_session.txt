@@ -1,0 +1,32 @@
+R version 4.1.0 (2021-05-18)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 18362)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United Kingdom.1252 
+[2] LC_CTYPE=English_United Kingdom.1252   
+[3] LC_MONETARY=English_United Kingdom.1252
+[4] LC_NUMERIC=C                           
+[5] LC_TIME=English_United Kingdom.1252    
+system code page: 65001
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] cowplot_1.1.1 ggplot2_3.3.5 lme4_1.1-27.1 Matrix_1.3-3 
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.7       compiler_4.1.0   pillar_1.6.1     nloptr_1.2.2.2  
+ [5] tools_4.1.0      digest_0.6.27    boot_1.3-28      lifecycle_1.0.0 
+ [9] tibble_3.1.2     nlme_3.1-152     gtable_0.3.0     lattice_0.20-44 
+[13] pkgconfig_2.0.3  rlang_0.4.11     rstudioapi_0.13  DBI_1.1.1       
+[17] xfun_0.24        withr_2.4.2      dplyr_1.0.7      generics_0.1.0  
+[21] vctrs_0.3.8      grid_4.1.0       tidyselect_1.1.1 glue_1.4.2      
+[25] R6_2.5.0         fansi_0.5.0      minqa_1.2.4      farver_2.1.0    
+[29] purrr_0.3.4      magrittr_2.0.1   scales_1.1.1     ellipsis_0.3.2  
+[33] MASS_7.3-54      splines_4.1.0    assertthat_0.2.1 colorspace_2.0-2
+[37] labeling_0.4.2   tinytex_0.32     utf8_1.2.1       munsell_0.5.0   
+[41] crayon_1.4.1    

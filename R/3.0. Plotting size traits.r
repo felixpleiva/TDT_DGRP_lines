@@ -71,8 +71,8 @@ col.male1=col=c("#CC3333","#993366","#666699","#339999","#339966","#669966","#66
 # FIGURE 2
 #-------------------------------------------------------------------------------
 {
-pdf("3.2.1. Figure 2 Phenotypic traits of 20 DGRP lines.pdf",width = 4.7,height = 7.5,useDingbats = FALSE)
-#png("3.2.1. Figure 2 Phenotypic traits of 20 DGRP lines.png",width = 4.7,height = 7.5,units = "in",res = 600)
+#pdf("3.2.1. Figure 2 Phenotypic traits of 20 DGRP lines.pdf",width = 4.7,height = 7.5,useDingbats = FALSE)
+png("3.2.1. Figure 2 Phenotypic traits of 20 DGRP lines.png",width = 4.7,height = 7.5,units = "in",res = 600)
 layout(matrix(1:10, ncol=2, byrow=TRUE))
 par(oma=c(3.4, 3.8, 0.2, 3.8), mar=c(0, 0, 0, 0))
 
@@ -531,8 +531,8 @@ write.csv(datos.mean,"3.1.5 Table S6 Mean and SD of cell area by stock and sex.c
 #-------------------------------------------------------------------------------
 # FIGURE S1
 {
-  pdf("3.2.2. Figure S1 Compare females and males.pdf",width = 3,height = 8,useDingbats = FALSE)
-  #png("3.2.2. Figure S1 Compare females and males.png",width = 3,height = 8,units = "in",res = 300)
+  #pdf("3.2.2. Figure S1 Compare females and males.pdf",width = 3,height = 8,useDingbats = FALSE)
+  png("3.2.2. Figure S1 Compare females and males.png",width = 3,height = 8,units = "in",res = 600)
   layout(matrix(1:5, ncol=1, byrow=TRUE))
   par(mfrow=c(5,1),oma=c(3,3.5,0,0),mar=c(0,4.3,0,0))
   
