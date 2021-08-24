@@ -16,5 +16,5 @@ The software and R packages associated with each script are enlisted in the corr
 This repository is provided by the authors under the [MIT] (https://opensource.org/licenses/MIT) License.
 
 ## Further information
-For any further information, please contact: Félix P. Leiva, email: felixpleiva@gmail.com 
+For any further information, please contact me: Félix P. Leiva, email: felixpleiva@gmail.com 
 
