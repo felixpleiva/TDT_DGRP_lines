@@ -10,7 +10,7 @@ Leiva FP, Santos M, Rezende E, & Verberk WCEP. (2021). Draft version of paper da
 All processing was done in R. The R folder contains the scripts, numbered consecutively, to reproduce the analyzes and generate tables and figures presented in the manuscript. The outputs folder contains the output files of each R scripts. The starting number of each one of these files (e.g., “3.2.2. Figure S1 Compare females and males.png”) identifies the source script (e.g., 3.0. Plotting size traits.r).  
 
 ## R packages
-The software and R packages associated with each script are enlisted in the corresponding R session file.
+The software and R packages associated with each script are enlisted in the corresponding R session files.
 
 ## Licence
 This repository is provided by the authors under the [MIT] (https://opensource.org/licenses/MIT) License.
