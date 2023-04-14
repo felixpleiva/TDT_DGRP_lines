@@ -9,7 +9,7 @@ For any further information or to notify the author if errors are identified in 
 -------------------------------------------------------------------------------
 ### metadata for results on CS available.xlsx ###
 
-Data on body size related traits of 20 DGRP lines
+Data on body size related traits of 20 DGRP lines. These data are exported from a Microsoft Access database
 
 columnHeading		description
 -------------		-----------
@@ -53,7 +53,7 @@ INCLUDE			Indicate if data should be included (1) or not (0) in the analyses acc
 NOTES			Relevant notes by the researcher
 VIDEO_DURATION_MIN	Duration of the video in minutes
 VIDEO_DURATION_SEC	Duration of the video in seconds
-READER			Inicials letters to indicate the reader checking the video. FPL: Felix Patricio Leiva; CAB: Cecilia Andrea Balboa 
+READER			Inicials letters to indicate the reader checking the video. FPL: Félix Patricio Leiva; CAB: Cecilia Andrea Balboa 
 ACCLIM_TEMP		Acclimation temperature in Celcius degrees
 DATE_EXP		Date when experiment was performed (YYYYMMDD)
 AGE_DAYS		Age of the fly in days at the time of the measurement

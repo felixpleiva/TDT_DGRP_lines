@@ -15,10 +15,12 @@ attached base packages:
 
 other attached packages:
 [1] PerformanceAnalytics_2.0.4 xts_0.12.1                 zoo_1.8-9                 
-[4] lme4_1.1-27.1              Matrix_1.3-3               xlsx_0.6.5                
+[4] lme4_1.1-27.1              Matrix_1.3-3              
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7      quadprog_1.5-8  lattice_0.20-44 xlsxjars_0.6.1  MASS_7.3-54    
- [6] grid_4.1.0      nlme_3.1-152    minqa_1.2.4     nloptr_1.2.2.2  boot_1.3-28    
-[11] splines_4.1.0   tools_4.1.0     tinytex_0.32    xfun_0.24       compiler_4.1.0 
-[16] rJava_1.0-4    
+ [1] Rcpp_1.0.7        quadprog_1.5-8    lattice_0.20-44   digest_0.6.27    
+ [5] MASS_7.3-54       grid_4.1.0        nlme_3.1-152      evaluate_0.14    
+ [9] rlang_1.1.0       cli_3.0.1         minqa_1.2.4       rstudioapi_0.13  
+[13] nloptr_1.2.2.2    boot_1.3-28       rmarkdown_2.16    splines_4.1.0    
+[17] tools_4.1.0       xfun_0.24         yaml_2.2.1        compiler_4.1.0   
+[21] htmltools_0.5.1.1 knitr_1.34       
