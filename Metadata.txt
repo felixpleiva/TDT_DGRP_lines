@@ -3,11 +3,11 @@
 -------------------------------------------------------------------------------
 Cite the repository as:
 
-Leiva FP, Santos M, Rezende E, & Verberk WCEP. (2021). Draft version of paper data and code of manuscript: Intraspecific variation on heat tolerance in a model ectotherm. Zenodo. https://doi.org/10.5281/zenodo.5120028.
+Leiva FP, Santos M, Rezende E, & Verberk WCEP. (2021). Paper data and code of manuscript: Intraspecific variation on heat tolerance in a model ectotherm: the role of oxygen, cell size, body size and duration. Zenodo. https://doi.org/10.5281/zenodo.5120028.
 
 For any further information or to notify the author if errors are identified in the data or script, please contact Félix P. Leiva (felixpleiva@gmail.com)
 -------------------------------------------------------------------------------
-### metadata for results on CS available.xlsx ###
+### metadata for "results on CS available.xlsx" stored in Data folder ###
 
 Data on body size related traits of 20 DGRP lines. These data are exported from a Microsoft Access database
 
@@ -15,21 +15,21 @@ columnHeading		description
 -------------		-----------
 NUMBER_STOCK		Stock ID as in Bloomington Stock Center
 GENOTYPE		Genotype ID as in Bloomington Stock Center
-SEX			Sex of the experimental individuals (male, female) 
-FW			Individual fresh mass in miligrams
-CENTROID_SIZE		Centroid size of the wing mesuared as the area of seven landmarks following steps by Verspagen et al 2020
+SEX			Sex of the experimental individuals (male, female)
+FW			Individual fresh mass in milligrams
+CENTROID_SIZE		Centroid size of the wing measured as the area of seven landmarks following steps by Verspagen et al 2020
 WING_SIDE		Indicate the side of wing used to measure the traits (L: left; R: right)
 WELL			Indicate the well ID
 COUNTING_AREA		Area, in aquared micrometers, to counting the number of trichomes
-TRICHOMES_NUMBER	Number of trichromes  
+TRICHOMES_NUMBER	Number of trichromes
 IOD			Individual interocular distance in micrometers
-DM			Individual dry mass in miligrams
+DM			Individual dry mass in miligrams. I did not measure dry mass
 AGE			Age of the fly in days at the time of the measurement
-PLATE			Label of the 96-well plate to store the flies
-NOTES			Relevant notes by the researcher
+PLATE			Label of the 96-well plate used to store the flies
+NOTES			Relevant notes made by the researcher
 INCLUDE			Indicate if data should be included (1) or not (0) in the analyses
 ----------------------------------------------------------------------------
-### metadata for results on TDT available.xlsx ###
+### metadata for "results on TDT available.xlsx" stored in the Data folder ###
 
 Data on survival time for 20 DGRP lines. These data are exported from a Microsoft Access database
 
@@ -41,9 +41,9 @@ NUMBER_STOCK		Stock ID as in Bloomington Stock Center
 GENOTYPE		Genotype ID as in Bloomington Stock Center
 SEX			Sex of the experimental individuals (male, female)
 STRESS_TEMP		Stress temperature in Celcius degrees
-RUN_NUMBER		Number of run for a given temperature and date
+RUN_NUMBER		Run ID for a given test temperature and date
 IDTDT			Autonumeric key for a given test
-DATE_REV		Date in which the test of survivak was performed
+DATE_REV		Date in which the video was checked (YYYYMMDD)
 FLASK_NUMBER		Number of flask
 TIME_SURV_MIN		Survival time in minutes
 TIME_SURV_SEC		Survival time in seconds
@@ -53,9 +53,9 @@ INCLUDE			Indicate if data should be included (1) or not (0) in the analyses acc
 NOTES			Relevant notes by the researcher
 VIDEO_DURATION_MIN	Duration of the video in minutes
 VIDEO_DURATION_SEC	Duration of the video in seconds
-READER			Inicials letters to indicate the reader checking the video. FPL: Félix Patricio Leiva; CAB: Cecilia Andrea Balboa 
+READER			Inicials letters to indicate the name of the reader checking the video. FPL: Félix Patricio Leiva; CAB: Cecilia Andrea Balboa 
 ACCLIM_TEMP		Acclimation temperature in Celcius degrees
-DATE_EXP		Date when experiment was performed (YYYYMMDD)
+DATE_EXP		Date of experiment (YYYYMMDD)
 AGE_DAYS		Age of the fly in days at the time of the measurement
 TEST_OXYGEN		Test oxygen in the vials, in kilopascals, during the experiment 
 ACCLIM_OXYGEN		Acclimation oxygen in kilopascals
@@ -63,7 +63,7 @@ ACCLIM_TIME		Acclimation time in days
 PLATE_NAME		Label of the 96-well plate to store the flies
 WELL			Indicate the well ID
 ----------------------------------------------------------------------------
-### metadata for 1.1.1. Individual body traits (no iod) for all DGRP lines.csv ###
+### metadata for "1.1.1. Individual body traits (no iod) for all DGRP lines.csv" stored in the Outputs folder ###
 
 Data output of the R script "1.0. Cell area for each DGRP line.R"
 
@@ -76,14 +76,14 @@ age			Age of the fly in days at the time of the measurement
 plate			Label of the 96-well plate to store the flies
 well			Indicate the well ID
 ws			Wing size in squared micrometers
-fw			Individual fresh mass in miligrams
-trichomes		Number of trichromes
-area			Area, in aquared micrometers, to counting the number of trichomes
-cell.area		Cell area squared micrometers
+fw			Individual fresh mass in milligrams
+trichomes		Number of trichromes in the counting area
+area			Area, in squared micrometers, to counting the number of trichomes
+cell.area		Cell area, in squared micrometers
 cell.number		Cell number in the wing
 
 ----------------------------------------------------------------------------
-### metadata for 1.1.2. Individual body traits for 14 DGRP lines.csv ###
+### metadata for "1.1.2. Individual body traits for 14 DGRP lines.csv" stored in the Outputs folder ###
 
 Data output of the R script "1.0. Cell area for each DGRP line.R"
 
@@ -96,14 +96,14 @@ age			Age of the fly in days at the time of the measurement
 plate			Label of the 96-well plate to store the flies
 well			Indicate the well ID
 ws			Wing size in squared micrometers
-fw			Individual fresh mass in miligrams
-trichomes		Number of trichromes
+fw			Individual fresh mass in milligrams
+trichomes		Number of trichromes in the counting area
 iod			Individual interocular distance in micrometers
-area			Area, in aquared micrometers, to counting the number of trichomes
-cell.area		Cell area squared micrometers
+area			Area, in squared micrometers, to counting the number of trichomes
+cell.area		Cell area, in squared micrometers
 cell.number		Cell number in the wing
 ----------------------------------------------------------------------------
-### metadata for 2.1.1. Phenotypic traits data of DGRP lines.csv ###
+### metadata for "2.1.1. Phenotypic traits data of DGRP lines.csv" stored in the Outputs folder ###
 
 Data output of the R script "2.0. Predictions to calculate IOD of remaining flies.R"
 
@@ -116,19 +116,17 @@ age			Age of the fly in days at the time of the measurement
 plate			Label of the 96-well plate to store the flies
 well			Indicate the well ID
 ws			Wing size in squared micrometers
-fw			Individual fresh mass in miligrams
-trichomes		Number of trichromes
+fw			Individual fresh mass in milligrams
 iod			Individual interocular distance in micrometers
-area			Area, in aquared micrometers, to counting the number of trichomes
 cell.area		Cell area squared micrometers
 cell.number		Cell number in the wing
 fresh.mass.z	        Fresh mass standardized (i.e. subtracting the mean and dividing by the standard deviation) 
 iod.z			Interocular distance standardized (i.e. subtracting the mean and dividing by the standard deviation)		
 wing.area.z		Wing area standardized (i.e. subtracting the mean and dividing by the standard deviation)
-cell.number.z		Cell number in the wing standardized (i.e. subtracting the mean and dividing by the standard deviation)
-cell.area.z		Cell area i.e. subtracting the mean and dividing by the standard deviation)
+cell.number.z		Cell number standardized (i.e. subtracting the mean and dividing by the standard deviation)
+cell.area.z		Cell area standardized (i.e. subtracting the mean and dividing by the standard deviation)
 ----------------------------------------------------------------------------
-### metadata for 3.1.1. Table S2 Mean and SD of fresh mass by stock and sex.csv ###
+### metadata for "3.1.1. Table S2 Mean and SD of fresh mass by stock and sex.csv" stored in the Outputs folder ###
 
 Data output of the R script "3.0. Plotting size traits.R"
 
@@ -139,7 +137,7 @@ sex			Sex of the experimental individuals (male, female)
 mean			Mean of fresh mass, in milligrams, per stock and sex
 sd			Standard deviation of fresh mass per stock and sex
 ----------------------------------------------------------------------------
-### metadata for 3.1.2. Table S3 Mean and SD of interocular distance by stock and sex.csv ###
+### metadata for "3.1.2. Table S3 Mean and SD of interocular distance by stock and sex.csv" stored in the Outputs folder ###
 
 Data output of the R script "3.0. Plotting size traits.R"
 
@@ -150,7 +148,7 @@ sex			Sex of the experimental individuals (male, female)
 mean			Mean of interocular distance, in micrometers, per stock and sex
 sd			Standard deviation of interocular distance per stock and sex
 ----------------------------------------------------------------------------
-### metadata for 3.1.3. Table S4 Mean and SD of wing area by stock and sex.csv ###
+### metadata for "3.1.3. Table S4 Mean and SD of wing area by stock and sex.csv" stored in the Outputs folder ###
 
 Data output of the R script "3.0. Plotting size traits.R"
 
@@ -161,7 +159,7 @@ sex			Sex of the experimental individuals (male, female)
 mean			Mean of wing area, in squared micrometers, per stock and sex
 sd			Standard deviation of wing area per stock and sex
 ----------------------------------------------------------------------------
-### metadata for 3.1.4. Table S5 Mean and SD of cell number by stock and sex.csv ###
+### metadata for "3.1.4. Table S5 Mean and SD of cell number by stock and sex.csv" stored in the Outputs folder ###
 
 Data output of the R script "3.0. Plotting size traits.R"
 
@@ -172,7 +170,7 @@ sex			Sex of the experimental individuals (male, female)
 mean			Mean of cell number per stock and sex
 sd			Standard deviation of cell number per stock and sex
 ----------------------------------------------------------------------------
-### metadata for 3.1.5 Table S6 Mean and SD of cell area by stock and sex.csv ###
+### metadata for "3.1.5 Table S6 Mean and SD of cell area by stock and sex.csv" stored in the Outputs folder ###
 
 Data output of the R script "3.0. Plotting size traits.R"
 
@@ -183,7 +181,7 @@ sex			Sex of the experimental individuals (male, female)
 mean			Mean of cell area, in squared micrometers, per stock and sex
 sd			Standard deviation of cell area per stock and sex
 ----------------------------------------------------------------------------
-### metadata for 4.1.1. Survival time of Drosophila melanogaster and its associated size traits at 21 kPa.csv ###
+### metadata for "4.1.1. Survival time of Drosophila melanogaster and its associated size traits at 21 kPa.csv" stored in the Outputs folder ###
 
 Data output of the R script "4.0. Exploratory analysis TDT curves.R". Survival time is measured at 21 kilopascals
 
@@ -197,7 +195,7 @@ test.temp		Stress temperature in Celcius degrees
 run			Number of run for a given temperature and date
 id.ind			ID for a given fly
 acclim.temp		Acclimation temperature in Celcius degrees
-date.exp		Date when experiment was performed (YYYYMMDD)
+date.exp		Date of experiment (YYYYMMDD)
 age			Age of the fly in days at the time of the measurement
 test.oxygen		Test oxygen in the vials, in kilopascals, during the experiment 
 acclim.oxygen		Acclimation oxygen in kilopascals
@@ -205,17 +203,17 @@ acclim.time		Acclimation time in days
 surv.time		Log in base 10 of the survival time, in decimal of minutes
 video.time		Log in base 10 of the video duration, in decimal of minutes
 ws			Wing size in squared micrometers
-fw			Individual fresh mass in miligrams
-cell.area		Cell area squared micrometers
+fw			Individual fresh mass in milligrams
+cell.area		Cell area, in squared micrometers
 cell.number		Cell number in the wing
-iod			Individual interocular distance in micrometers
+iod			Individual interocular distance, in micrometers
 fresh.mass.z	        Fresh mass standardized (i.e. subtracting the mean and dividing by the standard deviation) 
 wing.area.z		Wing area standardized (i.e. subtracting the mean and dividing by the standard deviation)
 cell.number.z		Cell number in the wing standardized (i.e. subtracting the mean and dividing by the standard deviation)
-cell.area.z		Cell area i.e. subtracting the mean and dividing by the standard deviation)
+cell.area.z		Cell area standardized  (i.e. subtracting the mean and dividing by the standard deviation)
 iod.z			Interocular distance standardized (i.e. subtracting the mean and dividing by the standard deviation)		
 ----------------------------------------------------------------------------
-### metadata for 4.1.2. Survival time of Drosophila melanogaster and its associated size traits at two oxygen levels.csv ###
+### metadata for "4.1.2. Survival time of Drosophila melanogaster and its associated size traits at two oxygen levels.csv" stored in the Outputs folder ###
 
 4.0. Exploratory analysis TDT curves
 
@@ -231,7 +229,7 @@ test.temp		Stress temperature in Celcius degrees
 run			Number of run for a given temperature and date
 id.ind			ID for a given fly
 acclim.temp		Acclimation temperature in Celcius degrees
-date.exp		Date when experiment was performed (YYYYMMDD)
+date.exp		Date of experiment (YYYYMMDD)
 age			Age of the fly in days at the time of the measurement
 test.oxygen		Test oxygen in the vials, in kilopascals, during the experiment 
 acclim.oxygen		Acclimation oxygen in kilopascals
@@ -240,19 +238,19 @@ surv.time		Log in base 10 of the survival time, in decimal of minutes
 video.time		Log in base 10 of the video duration, in decimal of minutes
 genotype.y		Genotype ID as in Bloomington Stock Center
 ws			Wing size in squared micrometers
-fw			Individual fresh mass in miligrams
+fw			Individual fresh mass in milligrams
 cell.area		Cell area squared micrometers
 cell.number		Cell number in the wing
 iod			Individual interocular distance in micrometers
 fresh.mass.z	        Fresh mass standardized (i.e. subtracting the mean and dividing by the standard deviation) 
 wing.area.z		Wing area standardized (i.e. subtracting the mean and dividing by the standard deviation)
 cell.number.z		Cell number in the wing standardized (i.e. subtracting the mean and dividing by the standard deviation)
-cell.area.z		Cell area i.e. subtracting the mean and dividing by the standard deviation)
+cell.area.z		Cell area standardized (i.e. subtracting the mean and dividing by the standard deviation)
 iod.z			Interocular distance standardized (i.e. subtracting the mean and dividing by the standard deviation)
 ----------------------------------------------------------------------------
-### metadata for 6.1.1. Table 1 Model comparison of survival time at 21 kPa.csv ###
+### metadata for "5.1.1. Table S9 Model comparison of survival time at 21 kPa.csv" stored in the Outputs folder ###
 
-Data output of the R script "6.0. TDT curves under normoxia.R". The most informative model is selected using a multimodel inference approach by means of the lowest Akaike's weights (wi), which provide the relative weight of the evidence towards one of all tested models, and therefore must add up to 1
+Data output of the R script "5.0. TDT curves under normoxia.R". The most informative model is selected using a multimodel inference approach by means of the lowest Akaike's weights (wi), which provide the relative weight of the evidence towards one of all tested models, and therefore must add up to 1
 
 columnHeading		description
 -------------		-----------
@@ -265,9 +263,9 @@ AICcWt			Akaike's weight
 LL			Log-Likelihood of the model
 Cum.Wt			Cummulative sum of the Akaike's weights
 ----------------------------------------------------------------------------
-### metadata for 7.1.1. Table 2 Model comparison of survival time at two kPa.csv ###
+### metadata for "5.1.2. Table 2 Model comparison of survival time at 21 kPa.csv" stored in the Outputs folder ###
 
-Data output of the R script "7.0. TDT curves under two oxygen conditions.R". The most informative model is selected using a multimodel inference approach by means of the lowest Akaike's weights (wi), which provide the relative weight of the evidence towards one of all tested models, and therefore must add up to 1
+Data output of the R script "5.0. TDT curves under normoxia.R". The most informative model is selected using a multimodel inference approach by means of the lowest Akaike's weights (wi), which provide the relative weight of the evidence towards one of all tested models, and therefore must add up to 1
 
 columnHeading		description
 -------------		-----------
@@ -279,3 +277,36 @@ ModelLik		Likelihood of the model
 AICcWt			Akaike's weight
 LL			Log-Likelihood of the model
 Cum.Wt			Cummulative sum of the Akaike's weights
+----------------------------------------------------------------------------
+### metadata for "6.1.1. Table S10 Model comparison of survival time at two kPa.csv" stored in the Outputs folder ###
+
+Data output of the R script "6.0. TDT curves under two oxygen conditions.R". The most informative model is selected using a multimodel inference approach by means of the lowest Akaike's weights (wi), which provide the relative weight of the evidence towards one of all tested models, and therefore must add up to 1
+
+columnHeading		description
+-------------		-----------
+Modnames		Model name
+K			Number of parameters
+AICc			Corrected Akaike's information criterion
+Delta_AICc		Difference in AICc with respect to the model with highest support
+ModelLik		Likelihood of the model
+AICcWt			Akaike's weight
+LL			Log-Likelihood of the model
+Cum.Wt			Cummulative sum of the Akaike's weights
+----------------------------------------------------------------------------
+### metadata for "6.1.2. Table 3 Model comparison of survival time at two kPa.csv" stored in the Outputs folder ###
+
+Data output of the R script "6.0. TDT curves under two oxygen conditions.R". The most informative model is selected using a multimodel inference approach by means of the lowest Akaike's weights (wi), which provide the relative weight of the evidence towards one of all tested models, and therefore must add up to 1
+
+columnHeading		description
+-------------		-----------
+Modnames		Model name
+K			Number of parameters
+AICc			Corrected Akaike's information criterion
+Delta_AICc		Difference in AICc with respect to the model with highest support
+ModelLik		Likelihood of the model
+AICcWt			Akaike's weight
+LL			Log-Likelihood of the model
+Cum.Wt			Cummulative sum of the Akaike's weights
+-------------------------------------------------------------------------------
+###############################################################################
+-------------------------------------------------------------------------------
