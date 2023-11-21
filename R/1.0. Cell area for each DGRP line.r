@@ -6,7 +6,7 @@
 
 # Leiva FP, Santos M, Rezende EL & Verberk WCEP. (2021). Paper data and code of
 # manuscript: Intraspecific variation on heat tolerance in a model ectotherm:
-# the role of oxygen, cell size, body size and duration. Zenodo.
+# the role of oxygen, cell size and body size. Zenodo.
 # https://doi.org/10.5281/zenodo.5120028.
 # ------------------------------------------------------------------------------
 # Cleaning working space

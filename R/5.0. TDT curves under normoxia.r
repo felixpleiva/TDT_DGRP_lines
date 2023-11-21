@@ -9,7 +9,7 @@
 
 # Leiva FP, Santos M, Rezende EL & Verberk WCEP. (2021). Paper data and code of
 # manuscript: Intraspecific variation on heat tolerance in a model ectotherm:
-# the role of oxygen, cell size and body size Zenodo.
+# the role of oxygen, cell size and body size. Zenodo.
 # https://doi.org/10.5281/zenodo.5120028.
 # ------------------------------------------------------------------------------
 # Cleaning working space
@@ -345,7 +345,7 @@ f21median3 <- gls(surv.time ~
 summary(f21median3)# NO three ways interaction
 
 #-------------------------------------------------------------------------------
-# TABLE S9 SUPPLEMENTARY INFORMATION
+# TABLE S4 SUPPLEMENTARY INFORMATION
 #-------------------------------------------------------------------------------
 m0 <- lm(surv.time ~ scale(test.temp), 
          data = d21.median, na.action = na.omit)
@@ -451,14 +451,14 @@ full<-lm(surv.time~
                +scale(test.temp)*sex
                ,data=d21.median,na.action = na.omit)
 
-fit.list.table.S9 <- list(m0, m1.1, m1.2, m1.3, m1.4, m1.5,
+fit.list.table.S4 <- list(m0, m1.1, m1.2, m1.3, m1.4, m1.5,
                        m2.1, m2.2, m2.3, m2.4,
                        m3.1, m3.2, m3.3,
                        m4.1, m4.2, m4.3
                        #full
                        )
 
-fit.names.table.S9 <-c(
+fit.names.table.S4 <-c(
                     "TT",
                     "TT + TT * sex",
                     "TT + TT * CA",
@@ -479,8 +479,8 @@ fit.names.table.S9 <-c(
                     )
 
 #compare by using AICc
-fit.table.S9<-aictab(fit.list.table.S9,fit.names.table.S9, second.ord = T,sort = TRUE, digits = 3, LL=TRUE)
-fit.table.S9
+fit.table.S4<-aictab(fit.list.table.S4,fit.names.table.S4, second.ord = T,sort = TRUE, digits = 3, LL=TRUE)
+fit.table.S4
 # Model selection based on AICc:
 #   
 #                                    K    AICc Delta_AICc AICcWt Cum.Wt    LL
@@ -502,7 +502,7 @@ fit.table.S9
 # TT + TT * IOD                      5 -150.58      24.97   0.00   1.00 80.49
 
 #export table
-write.csv(fit.table.S9,"../Outputs/5.1.1. Table S9 Model comparison of survival time at 21 kPa.csv",row.names = FALSE)
+write.csv(fit.table.S4,"../Outputs/5.1.1. Table S4 Model comparison of survival time at 21 kPa.csv",row.names = FALSE)
 
 #-------------------------------------------------------------------------------
 # TABLE 2 MAIN MANUSCRIPT
@@ -584,7 +584,7 @@ fit.table.2
 write.csv(fit.table.2,"../Outputs/5.1.2. Table 2 Model comparison of survival time at 21 kPa.csv",row.names = FALSE)
 
 #-------------------------------------------------------------------------------
-# TABLE S11 SUPPLEMENTARY INFORMATION
+# TABLE S6 SUPPLEMENTARY INFORMATION
 #-------------------------------------------------------------------------------
 summary(fit_5)
 
