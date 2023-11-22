@@ -20,4 +20,4 @@ This repository is provided by the author under the [MIT](https://opensource.org
 
 ## Further information
 
-For any further information, please contact me: Félix P. Leiva, email: [felixpleiva\@gmail.com](mailto:felixpleiva@gmail.com){.email}.
+For any further information, please contact me: Félix P. Leiva, email: [felixpleiva@gmail.com](mailto:felixpleiva@gmail.com).
