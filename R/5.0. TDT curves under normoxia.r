@@ -526,13 +526,11 @@ fit_3 <- lm(surv.time ~ scale(test.temp) +
            data = d21.median, na.action = na.omit)
 summary(fit_3)
 
-
 fit_4 <- lm(surv.time ~ scale(test.temp) +
              scale(test.temp) * sex +
              scale(test.temp) * cell.area.rel,
            data = d21.median, na.action = na.omit)
 summary(fit_4)
-
 
 fit_5 <- lm(surv.time ~ scale(test.temp) +
              scale(test.temp) * sex +
@@ -545,7 +543,6 @@ fit_6 <- lm(surv.time ~ scale(test.temp) +
                  scale(test.temp) * cell.area.rel,
                data = d21.median, na.action = na.omit)
 summary(fit_6)
-
 
 fit_full <- lm(surv.time ~ scale(test.temp) +
              scale(test.temp) * sex +
