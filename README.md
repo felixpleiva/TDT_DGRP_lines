@@ -16,7 +16,7 @@ The software and R packages associated with each script are enlisted in the corr
 
 ## Licence
 
-This repository is provided by the author under the [MIT](https://opensource.org/licenses/MIT) License.
+This repository is provided by the author under the [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/) License.
 
 ## Further information
 
